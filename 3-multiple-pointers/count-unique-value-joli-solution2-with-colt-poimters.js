@@ -1,4 +1,5 @@
 // count unique value
+// my and colt solution
 function countUniqueValues(arr) {
     let i = 0;
     for (let j = 1; j <= arr.length; j++) {
