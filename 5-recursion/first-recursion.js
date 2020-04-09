@@ -1,12 +1,14 @@
 function countDown(num) {
     if (num <= 0) {
+        // base case
         console.log('All done!')
         return;
     }
 
     console.log(num);
+    //different input
     num--;
-    // base case and different input
+    //recurssion
     countDown(num);
 }
 
