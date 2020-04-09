@@ -5,6 +5,8 @@
     wheter there are any duplicates among arguments
     passed in. Can solve using frequency counter
     or multiple patters
+
+    TIME O(N)
 */
 
 

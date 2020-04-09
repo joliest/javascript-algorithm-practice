@@ -2,6 +2,9 @@
  Write a function called sameFrequency.
  Give two positive integers, findout if the two
  numbers have the same frequency of digits 
+
+ TIME O(N)
+ SPACE O(N)
 */
 
 /* You solution must be: */
