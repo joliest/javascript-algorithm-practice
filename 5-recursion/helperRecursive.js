@@ -1,4 +1,5 @@
 // outer function which is not recursive
+// see pure recursive for alternative
 function collectOddValues(arr) {
     let results = [];
 
