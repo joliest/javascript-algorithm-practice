@@ -17,7 +17,8 @@ function maxSubarraySum(arr, num) {
 }
 
 
+maxSubarraySum([100, 200, 300, 400], 2) // 700
 // maxSubarraySum([1,2,5,2,8,1,5], 1); //8
-maxSubarraySum([1,2,5,2,8,1,5], 4); //17
+// maxSubarraySum([1,2,5,2,8,1,5], 4); //17
 // maxSubarraySum([4,2,1,6],1);
 // maxSubarraySum([], 4);
