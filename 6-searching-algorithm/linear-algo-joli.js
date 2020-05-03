@@ -5,6 +5,8 @@
     -1
 
     Font use indexOf
+
+    Time Complexity - O(N)
 */
 function linearSearch(arr, val) {
     for (let i = 0; i < arr.length; i++) {
