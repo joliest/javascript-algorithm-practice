@@ -35,4 +35,31 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+
+    /*
+	* if there are no nodes in the list, return undefined
+	* Loop through the list until you reach the tail
+	* Set the next property of the 2nd to the last node to be null
+	* Set the tail to be the 2nd to the last node
+	* Decrement the length of the list by 1
+	* Return the value of the node removed
+    */
+    pop() {
+        if (!this.head) return undefined;
+        var current = this.head;
+        var newTail = current;
+        while(current.next) {
+            newTail = current;
+            current = current.next;
+        }
+        this.tail = newTail;
+        this.tail.next = null;
+        this.length--;
+        // work around on deleting the last item
+        if (this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return current;
+    }
 }
