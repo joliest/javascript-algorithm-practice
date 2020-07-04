@@ -62,4 +62,20 @@ class SinglyLinkedList {
         }
         return current;
     }
+
+    /*
+	* if there are no nodes,  return undefined
+	* Store the current head property in a variable
+	* Set the head property to be the current head's next property
+	* decrement the length of 1
+	* return the value of the node removed
+    */
+   shift() {
+        if (!this.head) return undefined;
+        const currentHead = this.head;
+        this.head = currentHead.next;
+        this.length--;
+        if (this.length === 0) this.tail = null;
+        return currentHead;
+    }
 }
