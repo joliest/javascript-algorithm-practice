@@ -119,4 +119,18 @@ class SinglyLinkedList {
 
         return current;
     }
+    
+
+    /*
+	* function should accept a value and an index
+	* use your get function to find the specific node
+	* if the node is not found, return false
+	* if the node is found, set the value of that node to be the value passed to the function and return true
+    */
+   set(index, value) {
+        const found = this.get(index);
+        if (!found) return false
+        found.val = value;
+        return true;
+    }
 }
