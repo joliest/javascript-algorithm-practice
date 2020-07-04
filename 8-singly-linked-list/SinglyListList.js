@@ -133,7 +133,7 @@ class SinglyLinkedList {
         found.val = value;
         return true;
     }
-    
+
     /*
         * if the index is less than zero or greater than the length, return false
         * if the index is the same as the length, push a new node to the end of the list
@@ -157,5 +157,27 @@ class SinglyLinkedList {
         newNode.next = temp;
         this.length++;
         return true;
+    }
+    
+
+    /*
+	* if the index is less than zero or greater than the length return undefined
+	* if the index is the same as length - 1, pop
+	* if the index is 0, shift
+	* Otherwise, using the get method, access the node at the index - 1
+	* Set the next property of that node to be the next property of the next node
+	* decrement the length
+	* return the value of the node remove
+    */
+   remove(index) {
+        if (index < 0 || index > this.length) return undefined;
+        if (index === (this.length - 1)) return this.pop();
+        if (index === 0) return this.shift();
+
+        const prevNode = this.get(index - 1);
+        const deleteNode = this.get(index);
+        prevNode.next = deleteNode.next;
+        this.length--;
+        return deleteNode;
     }
 }
