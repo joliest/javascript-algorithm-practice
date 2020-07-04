@@ -133,4 +133,29 @@ class SinglyLinkedList {
         found.val = value;
         return true;
     }
+    
+    /*
+        * if the index is less than zero or greater than the length, return false
+        * if the index is the same as the length, push a new node to the end of the list
+        * if the index is 0, unshift a new node to the start of the list
+        * Otherwise, using get method, access the node at the index - 1
+        * set the next property on that node to be the new node
+        * set the next property of the new node to be the previous next (create temp variable to hold prev.next)
+        * increment the length
+        * return true
+    */
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+
+        const prevNode = this.get(index - 1);
+        const newNode = new Node(val);
+        const temp = prevNode.next;
+
+        prevNode.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
 }
