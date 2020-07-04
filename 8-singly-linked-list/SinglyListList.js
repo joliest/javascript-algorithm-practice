@@ -78,4 +78,27 @@ class SinglyLinkedList {
         if (this.length === 0) this.tail = null;
         return currentHead;
     }
+
+
+    /*
+	* this function should accept a value
+	* create a new node using the value passed to the function
+	* if there is no head property on the list, set the head and tail to be the newly created node
+	* Otherwise, set the newly created node's next property to be the current head property of the list.
+	* Set the head property on the list to be that newly created node
+	* Increment the length of the list by 1
+	* return the linked list
+    */
+   unshift(val) {
+        const newNode = new Node(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.length++;
+        return this;
+    }
 }
