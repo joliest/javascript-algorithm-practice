@@ -181,7 +181,16 @@ class SinglyLinkedList {
         return deleteNode;
     }
     
-
+/*
+	* swap the head and tail
+	* create variable next, prev and node
+	* initialize node to the head property (13)
+	* Loop thru the list
+	* Set node next property to next variable
+	* Set prev to node next property
+    * Set node to prev variable	
+    * Set next as the new node
+*/
     reverse() {
         var node = this.head;
         this.head = this.tail;
