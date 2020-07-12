@@ -53,6 +53,8 @@ class DoublyLinkedList {
         } else {
             this.tail = this.tail.prev;
             this.tail.next = null;
+            // severing returning node previous
+            temp.prev = null;
         }
         this.length--;
         return temp;
