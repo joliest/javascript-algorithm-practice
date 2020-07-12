@@ -34,4 +34,27 @@ class DoublyLinkedList {
         this.length++;
         return this;
     }
+
+    /*
+    * if there is no head, return undefined
+    * Store the current tail as a const to return later
+    * if the length is 1, set head and tail to null
+    * Update the tail to be the previous Node
+    * Set the new tail's next to null
+    * Decrement the length
+    * return the value removed
+    */
+    pop() {
+        if (!this.head) return undefined;
+        const temp = this.tail;
+        if (this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.tail = this.tail.prev;
+            this.tail.next = null;
+        }
+        this.length--;
+        return temp;
+    }
 }
