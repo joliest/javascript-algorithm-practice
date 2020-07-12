@@ -107,4 +107,32 @@ class DoublyLinkedList {
         this.length++;
         return this;
     }
+
+    /*
+	* if the index is less than 0 or greater than or equal the length, return null
+	* if the index is less than or equal to the half of the length of the list
+		* Loop thru the list starting from the head and loop toward the middle
+		* return the node if its found
+	* If the index is greater than half the length of the list
+		* Loop thu the list starting from the tail and loop towards the middle
+		* return the node once it found
+    */
+    get(idx) {
+        if (idx < 0 || idx >= this.length) return null;
+        const half = Math.floor(this.length / 2);
+        let node;
+        if (idx <= half) {
+            node = this.head;
+            for (let i = 0; i <= half; i++) {
+                if (i === idx) return node;
+                node = node.next;
+            }
+        } else {
+            node = this.tail;
+            for (let i = this.length - 1; i > half; i--) {
+                if (i === idx) return node;
+                node = node.prev;
+            }
+        }
+    }
 }
