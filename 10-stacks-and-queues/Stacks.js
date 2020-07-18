@@ -34,4 +34,25 @@ class Stack {
         }
         return ++this.size;
     }
+    
+    /*
+	* If there are no nodes in the stack, return null
+	* Create a temporary variable to store the first property on the stack
+	* If there is only onenode, set the first and last property to be null
+	* Otherwise, set the first property to be the next property of current first
+	* decrement the size by 1
+	* return the value of the node removed
+    */
+   pop() {
+        if (!this.first || this.size === 0) return null;
+        const temp = this.first;
+        if (this.size === 1) {
+            this.first = null;
+            this.last = null;
+        } else {
+            this.first = temp.next;
+        }
+        this.size--;
+        return temp.val;
+    }
 }
