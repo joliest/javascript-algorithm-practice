@@ -161,12 +161,14 @@ class DoublyLinkedList {
 	* return true
     */
    insert(idx, val) {
-        if (idx < 0 || idx >= this.length) return false;
-        if (idx === 0) return this.unshift(val);
-        if (idx === this.length) return this.push(val);
+        if (idx < 0 || idx > this.length) return false;
+        if (idx === 0) return !!this.unshift(val);
+        if (idx === this.length) return !!this.push(val);
+
         const insertNode = new Node(val);
         const prevNode = this.get(idx - 1);
         const nextNode = prevNode.next;
+
         prevNode.next = insertNode;
         nextNode.prev = insertNode;
         insertNode.prev = prevNode;
