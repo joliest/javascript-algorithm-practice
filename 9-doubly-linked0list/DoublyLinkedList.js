@@ -143,11 +143,11 @@ class DoublyLinkedList {
 	* Otherwise, return false
     */
    set(idx, val) {
-    const foundNode = this.get(idx)
-    if (foundNode) {
-        foundNode.val = val;
-        return true;
+        const foundNode = this.get(idx)
+        if (foundNode) {
+            foundNode.val = val;
+            return true;
+        }
+        return false;
     }
-    return false;
-}
 }
