@@ -135,4 +135,19 @@ class DoublyLinkedList {
             }
         }
     }
+
+    /*
+	* Create a variable which is the result of get() method at the index passed to the function
+		* if get() value is valid, set the value of that node to be the value passed to the function 
+		* return trrue
+	* Otherwise, return false
+    */
+   set(idx, val) {
+    const foundNode = this.get(idx)
+    if (foundNode) {
+        foundNode.val = val;
+        return true;
+    }
+    return false;
+}
 }
