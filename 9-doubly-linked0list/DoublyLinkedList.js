@@ -176,4 +176,34 @@ class DoublyLinkedList {
         this.length++;
         return true;
     }
+
+    
+
+    /*
+	* If the index is less than zero or greater than or equal to the length, return undefined
+	* If the index is 0, shift()
+	* if the indes is length - 1, pop()
+	* Use get method to retrieve the item to be removed
+	* Update the next and prev properties to remove the found node from the list
+	* Set the next and prev to null on the found node
+	* Decrement the length
+	* return the removed node
+    */
+   remove(idx) {
+        if (idx < 0 || idx >= this.length) return false;
+        if (idx === 0) return !!this.shift();
+        if (idx === (this.length - 1)) return !!this.pop();
+        const foundNode = this.get(idx);
+
+        const beforeNode = foundNode.prev;
+        const afterNode = foundNode.next;
+
+        beforeNode.next = afterNode;
+        afterNode.prev = beforeNode;
+
+        foundNode.next = null;
+        foundNode.prev = null;
+        this.length--;
+        return foundNode;
+    }
 }
