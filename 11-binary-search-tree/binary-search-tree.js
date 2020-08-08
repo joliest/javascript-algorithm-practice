@@ -109,4 +109,28 @@ class BinarySearchTree {
         helper(current);
         return visited;
     }
+
+     /*
+	* Create a variable to store the values of nodes visited
+	* Store the root of the BST in a variable called current
+	* Write a helper function which accepts a node
+
+		* if the node has a left property, call the helper function with the left property on the node
+		* if the node has a right property, call the helper function with the right property on the node
+		* push the value of the node to the variable that stores the value
+	* invoke the helper function with the current variable
+	* return the visited array
+    */
+   postOrder() {
+        if (!this.root) return [];
+        let visited = [];
+        
+        function traverse(node) {
+            if(node.left) traverse(node.left)
+            if(node.right) traverse(node.right)
+            visited.push(node.value)
+        }
+        traverse(this.root)
+        return visited;
+    }
 }
