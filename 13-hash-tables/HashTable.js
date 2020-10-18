@@ -31,6 +31,19 @@ class HashTable {
         }
         return undefined;
     }
+
+// add checker for duplicate
+    keys() {
+        let keyList = [];
+        this.keyMap.forEach(item => keyList = keyList.concat(item))
+        return keyList.map(item => item[0]);
+    }
+
+    values() {
+        let valueList = [];
+        this.keyMap.forEach(item => valueList = valueList.concat(item))
+        return valueList.map(item => item[1]);
+    }
 }
 
 let ht = new HashTable(17);
