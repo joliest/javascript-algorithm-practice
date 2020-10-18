@@ -22,10 +22,22 @@ class HashTable {
         }
         this.keyMap[index].push([key, value]);
     }
+
+    get(key) {
+        let index = this._hash(key);
+        if (this.keyMap[index]) {
+            const color = this.keyMap[index].filter(item => item[0] === key);
+            return color[0][1];
+        }
+        return undefined;
+    }
 }
 
-const hash = new HashTable();
-hash.set('hello world!', 'goodbye!!');
-hash.set('dogs', 'are cool');
-hash.set('cats', 'are fine');
-hash.set('i love', 'pizza');
+let ht = new HashTable(17);
+ht.set("maroon","#800000")
+ht.set("yellow","#FFFF00")
+ht.set("olive","#808000")
+ht.set("salmon","#FA8072")
+ht.set("lightcoral","#F08080")
+ht.set("mediumvioletred","#C71585")
+ht.set("plum","#DDA0DD")
