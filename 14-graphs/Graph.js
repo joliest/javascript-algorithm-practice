@@ -26,9 +26,22 @@ class Graph {
         this.adjacencyList[vertex1].push(vertex2);
         this.adjacencyList[vertex2].push(vertex1);
     }
+
+    /**
+	* should accept two vertices
+	* the function should reassign the key of vertext1 to be an array and does not contain vertex2
+	* the function should reassign the key of vertext2 to be an array and does not contain vertex1
+    */
+    removeEdge(vertex1, vertex2) {
+        this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(item => item !== vertex2);
+        this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(item => item !== vertex1);
+    }
 }
 
 const graph = new Graph();
 graph.addVertex('joli');
 graph.addVertex('arlene');
 graph.addVertex('khaye');
+
+graph.addEdge('joli', 'arlene');
+graph.addEdge('joli', 'khaye');
