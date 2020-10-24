@@ -36,6 +36,19 @@ class Graph {
         this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(item => item !== vertex2);
         this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(item => item !== vertex1);
     }
+
+    /**
+	* function should accept a vertex to remove
+	* the function should loop as long as there are any other vertices in the adjaceny list for the vertex
+	* Inside the loop. call our removeEdge function with the vertex we are removing and any values in the adjacency list for that vertex
+	* delete the key in adjacency list
+    */
+    removeVertex(vertex) {
+        for(let key in this.adjacencyList) {
+            this.adjacencyList[key] = this.adjacencyList[key].filter(item => item !== vertex);
+        }
+        delete this.adjacencyList[vertex];
+    }
 }
 
 const graph = new Graph();
@@ -45,3 +58,4 @@ graph.addVertex('khaye');
 
 graph.addEdge('joli', 'arlene');
 graph.addEdge('joli', 'khaye');
+graph.addEdge('khaye', 'arlene');
