@@ -44,8 +44,15 @@ class Graph {
 	* delete the key in adjacency list
     */
     removeVertex(vertex) {
-        for(let key in this.adjacencyList) {
-            this.adjacencyList[key] = this.adjacencyList[key].filter(item => item !== vertex);
+//         for(let key in this.adjacencyList) {
+//             this.adjacencyList[key] = this.adjacencyList[key].filter(item => item !== vertex);
+//         }
+//         delete this.adjacencyList[vertex];
+
+        // colt solution 
+        while(this.adjacencyList[vertex].length) {
+            const adjacentVertex = this.adjacencyList[vertex].pop();
+            this.removeEdge(vertex, adjacentVertex);
         }
         delete this.adjacencyList[vertex];
     }
