@@ -56,13 +56,62 @@ class Graph {
         }
         delete this.adjacencyList[vertex];
     }
+
+    /**
+    DEPTH FIRST TRAVERSAL (recursive)
+	* The function should accept a starting node
+	* Create a list to store the end result, to be returned at the very end
+	* Create an object to store visited vertices
+	* Create a helper function which accepts a vertex
+		* The helper function should return early if the vertex is empty
+		* The helper function should place the vertex it accepts into the visited object and push the vertex into the result array
+		* Loop over all the values in the adjacencyList for that vertex
+		* If any of those values have not been visited, recursively invoke the helper function with that vertex
+	* Invoke the helper function with the starting vertex
+	* Return the result array
+    */
+    depthFirstRecursive(startingVertex) {
+        const result = [];
+        const visited = {};
+        const helper = (vertex) => {
+        	if (!vertex) throw new Error('Starting point is required');
+        	if (!this.adjacencyList[vertex]) throw new Error('Invalid vertex');
+        	visited[vertex] = true;
+        	result.push(vertex);
+        	this.adjacencyList[vertex].forEach(value => {
+        		if(!visited[value]) {
+        			return helper(value)
+        		}
+        	})
+        }
+        helper(startingVertex)
+        return result;
+    }
 }
 
-const graph = new Graph();
-graph.addVertex('joli');
-graph.addVertex('arlene');
-graph.addVertex('khaye');
+const g = new Graph();
+g.addVertex("A")
+g.addVertex("B")
+g.addVertex("C")
+g.addVertex("D")
+g.addVertex("E")
+g.addVertex("F")
 
-graph.addEdge('joli', 'arlene');
-graph.addEdge('joli', 'khaye');
-graph.addEdge('khaye', 'arlene');
+g.addEdge("A", "B")
+g.addEdge("A", "C")
+g.addEdge("B", "D")
+g.addEdge("C", "E")
+g.addEdge("D", "E")
+g.addEdge("D", "F")
+g.addEdge("E", "F")
+
+/*
+            A
+          /   \
+         B     C
+        |_______\
+        D       E
+        \      /
+         \   / 
+           F
+*/
