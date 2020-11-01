@@ -87,6 +87,42 @@ class Graph {
         helper(startingVertex)
         return result;
     }
+
+    /*
+    DEPTH FIRST TRAVERSAL (iterative)
+	* The function should accept a starting node
+	* Create a stack to help use keep track of vertices (use list/array)
+	* Create a list to store the end result, to be returned at the very end
+	* Create an object to store visited vertices
+	* Add the starting vertex to the stack, and mark it as visited
+	* While the stack has something in it
+		* Pop the next vertex from the stack
+		* if that vertex hasn't been visited yet
+
+			* Mark it as visited
+			* Add it to the result list
+			* Push all of its neighbors into the stack
+	* Return the result array
+    */
+    depthFirstIterative(starting) {
+    	const stack = [starting];
+    	const result = [];
+    	const visited = {};
+    	visited[starting] = true;
+    	let currentVertex;
+    	while(stack.length) {
+    		console.log(stack)
+    		currentVertex = stack.pop();
+    		result.push(currentVertex)
+			this.adjacencyList[currentVertex].forEach(neighbor => {
+				if(!visited[neighbor]) {
+					visited[neighbor] = true
+				    stack.push(neighbor);
+				}
+			})
+    	}
+    	return result;
+    }
 }
 
 const g = new Graph();
